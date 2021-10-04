@@ -51,25 +51,6 @@ const products = [
 /* console.log(products); */
 
 
-/* products.forEach(product => {
-    console.log(product);
-    const {name, description, price, image_path, category}= product;/* destrutturazione oggetto */
-/*     const markup = `
-        <div class="product">
-            <img src="${image_path}" alt="case">
-            <h4>${name}</h4>
-            <p>${description}</p>
-            <hr>
-            <span>${price}</span>
-            <span>${category}</span>
-            <button>Buy now</button>
-        </div>
-    ` */
-
-/*     document.getElementById('products').insertAdjacentHTML('beforeend', markup)
-});  */
-
-
 /* crea una funzione per stampare i prodotti */
 function printProduct(list, DomEl){
     list.forEach(product => {
@@ -77,18 +58,45 @@ function printProduct(list, DomEl){
         const {name, description, price, image_path, category}  = product;/* destrutturazione oggetto */
         const markup = `
             <div class="product">
-                <img src="${image_path}" alt="case">
+                <img class="img-fluid" src="${image_path}" alt="case">
                 <h4>${name}</h4>
                 <p>${description}</p>
                 <hr>
-                <span>${price}</span>
-                <span>${category}</span>
-                <button>Buy now</button>
+                <span>€ ${price}</span>
+                <p>category: ${category}</p>
+                
+                
+                <button class="buy_now" data-product-name="${name}" data-product-price="${price}">Buy now</button>
             </div>
         `
-
+        /*a riga 69 aggiungo dei data al button per identificare il prodotto al click */
          DomEl.insertAdjacentHTML('beforeend', markup);
     })
 }
 
-printProduct(products, document.getElementById('products'));
+const productsEl= document.getElementById('products');
+printProduct(products, productsEl);
+
+
+/* Milestone implementazione carrello */
+
+    let cart = [];
+
+/* ciclo all' interno dei bottoni , al clik salvo il data corrispondete al bottone*/
+    document.querySelectorAll('.buy_now').forEach(button => {
+    button.addEventListener('click', function(){
+        console.log(this);
+        /* console.log(this.getAttribute('data-product-name')); */
+       const name = this.getAttribute('data-product-name');
+       const price = this.getAttribute('data-product-price');
+       const products_select = {name, price};
+       console.log(products_select);
+       cart.push(products_select);
+       console.log(cart);
+
+       document.getElementById('cart_view').insertAdjacentHTML('beforeend',`<div>${products_select.name} ${products_select.price}</div>` )
+
+    })
+  
+
+});
