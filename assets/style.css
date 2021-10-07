@@ -18,6 +18,26 @@ body{
     padding: 1rem;
     margin: 1rem;
     border-radius: 5px;
+    text-align: center;
+}
 
+.product> span{
+    background-color: rgb(241, 70, 70);
+    font-weight: 100;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.cart_view{
+    background-color:rgba(255, 255, 255, 0.863) ;
+    color:black;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    
 }
 

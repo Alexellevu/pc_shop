@@ -14,32 +14,29 @@
 
 </head>
 <body>
-    <header class="site_header bg-dark text-white">
-        <div class="row">
-            <h1>Pc-Store</h1>
+    <header class="site_header bg-dark text-white p-5 ">
+        
+            <h1 class="text-center">Pc-Store</h1>
+               
+            <div class="cart_view" class="d-flex flex-column">
+                <div><i class="fas fa-cart-plus"></i></div>   
+             <strong><span id="total"></span></strong>   
+            </div>
             
-            <div id="cart_view" class="d-flex flex-column"></div>
-        </div>
     </header>
 
   
         <main id="site_main">
-            <div class="row">
+           
                 <div id="products" class="d-flex flex-wrap ">
 
                 </div>
-                
-               
-
-            </div>
-          
-
 
         </main>
 
 
-    <footer class="site_footer">
-
+    <footer class="site_footer bg-dark text-white p-4 text-center">
+        <i class="fa fa-copyright" aria-hidden="true">Copyrigth by Alex</i>
     </footer>
     
     <script src="./assets/main.js"></script>
